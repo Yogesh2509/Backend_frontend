@@ -17,22 +17,22 @@ hbs.registerPartials(partialsPath)
 app.get("/", (req,res)=>{
     res.render("index");
 })
-app.get("/registration",(req,res)=>{
-    res.render("registration");
+app.get("/registration2",(req,res)=>{
+    res.render("registration2");
 })
-app.get("/login",(req,res)=>{
-    res.render("login")
+app.get("/login2",(req,res)=>{
+    res.render("login2")
 })
-app.post("/registration",(req,res)=>{
+app.post("/registration2",(req,res)=>{
    const data = new Register(req.body)
    data.save();
     res.send("registration successfull")
 })
-app.post("/login",async(req,res)=>{
+app.post("/login2",async(req,res)=>{
     const email=req.body.email;
     const password=req.body.password;
     const name = req.body.fname;
-    const userdetails = await Register.findOne({email:email});
+    const userdetails = await Register.findOne({email:email});  
     // console.log(userdetails)
     if(password == userdetails.password){
         res.send("home",{
